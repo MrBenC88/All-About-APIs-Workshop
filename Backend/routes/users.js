@@ -25,7 +25,11 @@ router.get("/info/:id", (req, res) => {
 //handles incoming HTTP post request.
 router.route("/add").post((req, res) => {
   const username = req.body.username; //we assign the username to variable, and create new instance of username
-  const newUser = new User({ username });
+  const age = req.body.age || 0;
+  const newUser = new User({
+    username,
+    age,
+  });
 
   newUser
     .save() // save the new user to the databse
@@ -40,23 +44,39 @@ router.route("/:id").get((req, res) => {
     .then((user) => res.json(user)) //then return as json ; else return error
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
 router.route("/:id").delete((req, res) => {
   // if its delete request then finds and deletes
   User.findByIdAndDelete(req.params.id)
     .then(() => res.json("user deleted."))
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
 router.route("/update/:id").post((req, res) => {
   //if route is update/ object id and is post, then we update it
   User.findById(req.params.id) // find current user and update
     .then((user) => {
       user.username = req.body.username; // sets new user variables to equal the new data
+      user.age = req.body.age;
 
       user
         .save() // save it
         .then(() => res.json("user updated!"))
         .catch((err) => res.status(400).json("Error: " + err));
     })
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+// PUT one aka Update
+router.put("/:id", (req, res) => {
+  const body = req.body;
+  const user = {
+    username: body.username,
+    age: body.age,
+  };
+
+  User.findByIdAndUpdate(req.params.id, user, { new: true })
+    .then((updatedUser) => res.json(updatedUser))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
