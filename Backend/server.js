@@ -44,7 +44,11 @@ app.use(express.json());
 const uri = process.env.ATLAS_URI;
 
 //Connect to your Database
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 const connection = mongoose.connection;
 
 //Confirm Connection
@@ -57,6 +61,8 @@ app.get("/hello", function (req, res) {
   return res.send("Hello world");
 });
 
+// For all routes using the user schema, need append /users to the url.
+// ie. http://localhost:5000/users/
 app.use("/users", userRouter);
 
 // Pass in our defined port variable so our server can accept a parameter from the environment and what port to listen to
