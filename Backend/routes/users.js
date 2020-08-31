@@ -59,6 +59,8 @@ router.get("/all", (req, res) => {
  * The :id is like a variable. This is object id that is created automatically by mongoDB.
  */
 
+// TODO #8 Fill in the missing pieces of code in order to complete the following Route.
+
 router.get("/:id", (req, res) => {
   //endpoint for accessing single user by id in database
   User.findById(req.params.id) // find it by id
@@ -79,6 +81,9 @@ router.get("/:id", (req, res) => {
 	"age":99
  }
  */
+
+// TODO #9 Fill in the missing pieces of code in order to complete the following Route.
+// Note: The function .save() saves the new user to the database.
 
 router.post("/add", (req, res) => {
   const username = req.body.username; //we assign the username to variable, and create new instance of username
@@ -102,6 +107,9 @@ router.post("/add", (req, res) => {
  * Delete a user based on their MongoDB id.
  */
 
+// TODO #10 Fill in the missing pieces of code in order to complete the following Route.
+// Note: The function User.findByIdAndDelete(req.params.id) finds a specific id from the MongoDB database.
+
 router.delete("/:id", (req, res) => {
   User.findByIdAndDelete(req.params.id)
     .then(() => res.json(`User with id ${req.params.id} deleted!`))
@@ -118,6 +126,9 @@ router.delete("/:id", (req, res) => {
  * The HTTP PUT request method creates a new resource or replaces a representation of the target resource with the request payload.
  * The alternative shown in the next route is using a POST request to update the corresponding fields.
  */
+
+// TODO #11 Fill in the missing pieces of code in order to complete the following Route.
+// Note: The function User.findByIdAndUpdate(req.params.id) finds a specific id from the MongoDB database and updates it
 
 router.put("/:id", (req, res) => {
   const body = req.body;
@@ -138,6 +149,9 @@ router.put("/:id", (req, res) => {
  *
  * This method uses a POST request to first find the user to update. It then updates with the new fields.
  */
+
+// TODO #12 Fill in the missing pieces of code in order to complete the following Route. (Optional)
+// Note: Create another route that updates an existing user in the database using  POST REQUEST.
 router.route("/update/:id").post((req, res) => {
   User.findById(req.params.id)
     .then((user) => {

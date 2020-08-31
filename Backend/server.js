@@ -39,21 +39,23 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// TODO #1 - Create a .env file to store MongoDB credentials
 //uri holds our credentials to access the MongoDB Database. You obtain this from the MongoDB Dashboard.
 // The actual credentials are stored in a .env file which you will have to create yourself within the backend directory (.\nwPlus Backend Workshop\backend ).
 
-//TODO #1
+// TODO #2 - Create a a variable to access that information in the .env variable
 const uri = process.env.ATLAS_URI;
 
-//Connect to your Database
+// TODO #3 Connect to your MongoDB Database
 mongoose.connect(uri, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useCreateIndex: true,
 });
+
 const connection = mongoose.connection;
 
-//Confirm Connection
+// TODO #4 Confirm the connection and output a success message if connected successfully.
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
@@ -63,6 +65,7 @@ app.get("/hello", function (req, res) {
   return res.send("Hello world");
 });
 
+// TODO #5 Mount the middleware for the routes served by the userRouter
 // For all routes using the user schema, need append /users to the url.
 // ie. http://localhost:5000/users/
 app.use("/users", userRouter);

@@ -8,6 +8,9 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+// TODO #6 Add an additional attribute representing the user age.
+// TODO #7 Set the appropriate  data type for age. (ie. Number)
+
 // trim is whitespace at end - if include whitespace it gets trimmed off
 const userSchema = new Schema(
   {
@@ -26,5 +29,4 @@ const userSchema = new Schema(
 );
 
 const User = mongoose.model("User", userSchema);
-
 module.exports = User;
