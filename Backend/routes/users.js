@@ -1,3 +1,7 @@
+/**
+ * This file contains our routes for the user object.
+ */
+
 const router = require("express").Router();
 let User = require("../models/user.model"); //requires mongoose module we created
 
