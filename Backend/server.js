@@ -41,6 +41,8 @@ app.use(express.json());
 
 //uri holds our credentials to access the MongoDB Database. You obtain this from the MongoDB Dashboard.
 // The actual credentials are stored in a .env file which you will have to create yourself within the backend directory (.\nwPlus Backend Workshop\backend ).
+
+//TODO #1
 const uri = process.env.ATLAS_URI;
 
 //Connect to your Database
