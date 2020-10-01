@@ -10,12 +10,13 @@
  * mongoose: used for MongoDB and helps connect to mongodb database
  * dotenv: allows you to separate secrets from your source code - important for .ENV file.
  *
- * To run the server, first we need to install the dependencies. In step 1, with npm install you can easily install all the dependencies required as we have written a script in the package.json to help simplify this process.
- * Next, you must (in your command terminal) navigate into the backend folder. (cd backend). Finally, to run the server, simply type nodemon server in the backend folder.
+ * To run the server, first we need to install the dependencies. In step 1, you must (in your command terminal) navigate into the backend folder. (cd backend)
+ * Next, with npm install you can easily install all the dependencies required as we have written a script in the package.json to help simplify this process.
+ * Finally, to run the server, simply type nodemon server in the backend folder.
  *
  * How to run the server:
- * 1. npm install
- * 2. cd backend
+ * 1. cd backend
+ * 2. npm install
  * 3. nodemon server
  *  */
 
@@ -36,7 +37,7 @@
  * 8. (TODO #4): Confirm the connection and output a success message if connected successfully via a function.
  * 9. Define our user route -> const userRouter = require("./routes/users");
  * 10. (TODO #5) Mount the middleware for the routes served by the userRouter -> app.use("/users", userRouter);
- */  
+ */
 
 const express = require("express");
 const cors = require("cors");
