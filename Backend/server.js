@@ -36,7 +36,7 @@
  * 8. (TODO #4): Confirm the connection and output a success message if connected successfully via a function.
  * 9. Define our user route -> const userRouter = require("./routes/users");
  * 10. (TODO #5) Mount the middleware for the routes served by the userRouter -> app.use("/users", userRouter);
- */
+ */  
 
 //Define our Route
 
