@@ -19,6 +19,25 @@
  * 3. nodemon server
  *  */
 
+/** How to start?
+ *
+ *  Initial Express Server Setup.
+ * 1. Dependencies
+ * 2. Set up express function (app and port)
+ * 3. Set up middleware and use express.json method
+ *    Pass in our defined port variable so our server can accept a parameter from the environment and what port to listen to.  (app.listen)
+ *    Confirm server is running.
+ *    Run server to confirm.
+ *
+ * 4. (TODO #1): Create .env file for MongoDB credentials
+ * 5. (TODO #2): Variable to store the info in the .env var. -> const uri = process.env.ATLAS_URI
+ * 6. (TODO #3): Connect to MongoDB Database
+ * 7. Set a variable so we can check that we are connected to the database  -> const connection = mongoose.connection;
+ * 8. (TODO #4): Confirm the connection and output a success message if connected successfully via a function.
+ * 9. Define our user route -> const userRouter = require("./routes/users");
+ * 10. (TODO #5) Mount the middleware for the routes served by the userRouter -> app.use("/users", userRouter);
+ */
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
