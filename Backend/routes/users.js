@@ -64,9 +64,10 @@ router.get("/all", (req, res) => {
 router.get("/:id", (req, res) => {
   //endpoint for accessing single user by id in database
   User.findById(req.params.id) // find it by id
-    .then((user) => res.send(user)) //then return as json ; else return error
-    .catch((err) => res.status(400).json("Error: " + err));
-});
+    .then((user) => /*Add missing code here*/)
+    .catch((err) => /*Add missing code here*/);
+ });
+ 
 
 /**
  * POST ONE (POST REQUEST)
@@ -89,15 +90,16 @@ router.post("/add", (req, res) => {
   const username = req.body.username; //we assign the username to variable, and create new instance of username
   const age = req.body.age || 0;
   const newUser = new User({
-    username,
-    age,
+    /**
+     * add missing code here
+     */
   });
-
   newUser
-    .save() // save the new user to the databse
+    .save() // save the new user to the database
     .then(() => res.json("User added!")) // return prompt that user is added; else return error message
     .catch((err) => res.status(400).json("Error: " + err));
-});
+ });
+ 
 
 /**
  * DELETE ONE (DELETE REQUEST)
@@ -110,12 +112,12 @@ router.post("/add", (req, res) => {
 // TODO #10 Fill in the missing pieces of code in order to complete the following Route.
 // Note: The function User.findByIdAndDelete(req.params.id) finds a specific id from the MongoDB database.
 
-router.delete("/:id", (req, res) => {
-  User.findByIdAndDelete(req.params.id)
-    .then(() => res.json(`User with id ${req.params.id} deleted!`))
-    .catch((err) => res.status(404).json("Error: " + err));
-});
-
+router./*adding missing code here*/("/:id", (req, res) => {
+  User./*add missing code here*/(req.params.id)
+    .then(() => /*adding missing code here*/)
+    .catch((err) => /*adding missing code here*/);
+ });
+ 
 /**
  *  UPDATE ONE (PUT REQUEST)
  *
@@ -130,17 +132,18 @@ router.delete("/:id", (req, res) => {
 // TODO #11 Fill in the missing pieces of code in order to complete the following Route.
 // Note: The function User.findByIdAndUpdate(req.params.id) finds a specific id from the MongoDB database and updates it
 
-router.put("/:id", (req, res) => {
-  const body = req.body;
+router./*adding missing code here*/("/:id", (req, res) => {
+  const body = /*adding missing code here*/;
   const user = {
-    username: body.username,
-    age: body.age,
+    /*adding missing code here*/
   };
-
-  User.findByIdAndUpdate(req.params.id, user, { new: true })
+ 
+ 
+  User./*adding missing code here*/(req.params.id, user, { new: true })
     .then((updatedUser) => res.json(updatedUser))
     .catch((err) => res.status(400).json("Error: " + err));
-});
+ });
+ 
 
 /**
  *  UPDATE ONE (POST REQUEST)
@@ -152,19 +155,7 @@ router.put("/:id", (req, res) => {
 
 // TODO #12 Fill in the missing pieces of code in order to complete the following Route. (Optional)
 // Note: Create another route that updates an existing user in the database using  POST REQUEST.
-router.route("/update/:id").post((req, res) => {
-  User.findById(req.params.id)
-    .then((user) => {
-      user.username = req.body.username; // sets new user variables to equal the new data
-      user.age = req.body.age;
 
-      user
-        .save() // save it
-        .then(() => res.json("User updated!"))
-        .catch((err) => res.status(400).json("Error: " + err));
-    })
-    .catch((err) => res.status(400).json("Error: " + err));
-});
 
 //For all these router files, need to export router
 module.exports = router;

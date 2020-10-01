@@ -21,7 +21,7 @@ const userSchema = new Schema(
       trim: true,
       minlength: 3,
     },
-    age: Number,
+    //add age here with appropriate datatype
   },
   {
     timestamps: true,
