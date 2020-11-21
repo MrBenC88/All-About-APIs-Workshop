@@ -11,4 +11,6 @@ Workshop brought to you by [nwPlus](https://www.nwplus.io/). <br/>
 📌 Slides: [See Slides](https://docs.google.com/presentation/d/10ZFGPgNJgQ-pFjR_P9jxj0riDiRSboKy6sedEvJ8Ctk/edit)<br/>
 📌 Workshop Companion Guide: [See Guide](https://www.notion.so/Workshop-Companion-Notes-Guide-9f3f132f0a2b4e7aad28c0dfc7b07df9)<br/>
 
+Backup Notion Notes: [See Notes](https://www.notion.so/nwPlus-APIs-feat-Express-MongoDB-a868a0694c5a4bd49813c4b16296d11a)
+
 
